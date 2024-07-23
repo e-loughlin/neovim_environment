@@ -59,6 +59,13 @@ return {
           ["<leader>zc"] = { "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
           ["<leader>za"] = { "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
           ["<leader>ze"] = { "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
+
+          -- DB
+
+          ["<leader>Du"] = { "<cmd>DBUIToggle<cr>", desc = "DB UI Toggle" },
+          ["<leader>Df"] = { "<cmd>DBUIFindBuffer<cr>", desc = "DB UI Find buffer" },
+          ["<leader>Dr"] = { "<cmd>DBUIRenameBuffer<cr>", desc = "DB UI Rename buffer" },
+          ["<leader>Dl"] = { "<cmd>DBUILastQueryInfo<cr>", desc = "DB UI Last query infos" },
         },
         t = {
           ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
