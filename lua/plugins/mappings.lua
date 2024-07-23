@@ -24,6 +24,7 @@ return {
           -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
           --
           -- Markdown
+          ["<leader>m"] = { desc = "Markdown" },
           ["<leader>mt"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview Toggle" },
           ["<leader>ms"] = { "<cmd>MarkdownPreviewStop<cr>", desc = "Markdown Preview Stop" },
           ["<leader>mp"] = { "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
@@ -38,10 +39,8 @@ return {
           ["<leader>tn"] = false,
           ["<leader>tu"] = false,
 
-          -- Trouble
-          ["<leader>T"] = { "<cmd>Trouble diagnostics<cr>", desc = "Document Diagnostics" },
-
           -- ChatGPT
+          ["<leader>z"] = { name = "󰚩 ChatGPT" },
           ["<leader>zz"] = { "<cmd>ChatGPT<cr>", desc = "ChatGPT Chat Window" },
           ["<leader>zr"] = { name = "ChatGPT Run ..." },
           ["<leader>zra"] = { "<cmd>ChatGPTRun add_tests<cr>", desc = "Add Tests" },
@@ -62,6 +61,7 @@ return {
 
           -- DB
 
+          ["<leader>D"] = { name = "󰆼 Db Tools" },
           ["<leader>Du"] = { "<cmd>DBUIToggle<cr>", desc = "DB UI Toggle" },
           ["<leader>Df"] = { "<cmd>DBUIFindBuffer<cr>", desc = "DB UI Find buffer" },
           ["<leader>Dr"] = { "<cmd>DBUIRenameBuffer<cr>", desc = "DB UI Rename buffer" },
