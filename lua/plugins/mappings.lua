@@ -11,9 +11,9 @@ return {
           ["<Leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
           ["<Leader>bD"] = {
             function()
-              require("astroui.status").heirline.buffer_picker(function(bufnr)
-                require("astrocore.buffer").close(bufnr)
-              end)
+              require("astroui.status").heirline.buffer_picker(
+                function(bufnr) require("astrocore.buffer").close(bufnr) end
+              )
             end,
             desc = "Pick to close",
           },
@@ -27,8 +27,7 @@ return {
           ["<leader>mt"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview Toggle" },
           ["<leader>ms"] = { "<cmd>MarkdownPreviewStop<cr>", desc = "Markdown Preview Stop" },
           ["<leader>mp"] = { "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
-          
-          
+
           -- ToggleTerm
           ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
 
@@ -40,8 +39,7 @@ return {
           ["<leader>tu"] = false,
 
           -- Trouble
-          ["<leader>T"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Document Diagnostics" },
-          
+          ["<leader>T"] = { "<cmd>Trouble diagnostics<cr>", desc = "Document Diagnostics" },
 
           -- ChatGPT
           ["<leader>zz"] = { "<cmd>ChatGPT<cr>", desc = "ChatGPT Chat Window" },
@@ -64,7 +62,7 @@ return {
         },
         t = {
           ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
-          ["<C-/>"] = { "<cmd>Trouble Toggle<cr>", desc = "Toggle Trouble Diagnostics" }
+          ["<C-/>"] = { "<cmd>Trouble Toggle<cr>", desc = "Toggle Trouble Diagnostics" },
           -- setting a mapping to false will disable it
           -- ["<esc>"] = false,
         },
@@ -79,16 +77,12 @@ return {
         n = {
           -- this mapping will only be set in buffers with an LSP attached
           K = {
-            function()
-              vim.lsp.buf.hover()
-            end,
+            function() vim.lsp.buf.hover() end,
             desc = "Hover symbol details",
           },
           -- condition for only server with declaration capabilities
           gD = {
-            function()
-              vim.lsp.buf.declaration()
-            end,
+            function() vim.lsp.buf.declaration() end,
             desc = "Declaration of current symbol",
             cond = "textDocument/declaration",
           },
