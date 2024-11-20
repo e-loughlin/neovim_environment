@@ -35,9 +35,28 @@ return {
       --   return true
       -- end
     },
+
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright",
+      dartls = {
+        cmd = { "dart", "language-server", "--protocol=lsp" },
+        filetypes = { "dart" },
+        root_dir = require("lspconfig.util").root_pattern "pubspec.yaml",
+        init_options = {
+          onlyAnalyzeProjectsWithOpenFiles = true,
+          suggestFromUnimportedLibraries = true,
+          closingLabels = true,
+          outline = true,
+          flutterOutline = true,
+        },
+        settings = {
+          dart = {
+            completeFunctionCalls = true,
+            showTodos = true,
+          },
+        },
+      },
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -48,6 +67,7 @@ return {
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
       -- function(server, opts) require("lspconfig")[server].setup(opts) end
+      dartls = function(_, opts) require("lspconfig").dartls.setup(opts) end,
 
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
@@ -96,6 +116,7 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
+      -- print("Attached LSP:", client.name)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
     end,
