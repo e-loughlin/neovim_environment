@@ -39,29 +39,14 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright",
-      dartls = {
-        cmd = { "dart", "language-server", "--protocol=lsp" },
-        filetypes = { "dart" },
-        root_dir = require("lspconfig.util").root_pattern "pubspec.yaml",
-        init_options = {
-          onlyAnalyzeProjectsWithOpenFiles = true,
-          suggestFromUnimportedLibraries = true,
-          closingLabels = true,
-          outline = true,
-          flutterOutline = true,
-        },
-        settings = {
-          dart = {
-            completeFunctionCalls = true,
-            showTodos = true,
-          },
-        },
-      },
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = {
+        cmd = { "clangd", "--compile-commands-dir=/Users/eloughlin/ws/compile_commands/compile_commands_fea.json" },
+      },
     },
     -- customize how language servers are attached
     handlers = {
