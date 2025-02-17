@@ -138,6 +138,7 @@ return {
           ["<leader>Df"] = { "<cmd>DBUIFindBuffer<cr>", desc = "DB UI Find buffer" },
           ["<leader>Dr"] = { "<cmd>DBUIRenameBuffer<cr>", desc = "DB UI Rename buffer" },
           ["<leader>Dl"] = { "<cmd>DBUILastQueryInfo<cr>", desc = "DB UI Last query infos" },
+<<<<<<< HEAD
 
           -- Molten Mappings
           ["<leader>m"] = { name = "󰈸 Molten (Python Runner)" },
@@ -189,6 +190,30 @@ return {
           },
 
           ["'D"] = { "<cmd>delmarks A-Z0-9<cr>", desc = "Delete all marks" },
+||||||| parent of 02622ed (2025-02-17_12:51:03)
+=======
+
+          -- Molten Mappings
+          ["<leader>m"] = { name = "󰈸 Molten (Python Runner)" },
+          ["<leader>mi"] = { ":MoltenInit<CR>", desc = "Initialize plugin with a Kernel" },
+          ["<leader>me"] = { name = "Evaluate..." },
+          ["<leader>meo"] = { ":MoltenEvaluateOperator<CR>", desc = "Run operator selection" },
+          ["<leader>mrl"] = { ":MoltenEvaluateLine<CR>", desc = "Evaluate line" },
+          ["<leader>mrr"] = { ":MoltenReevaluateCell<CR>", desc = "Re-evaluate cell" },
+          ["<leader>mrv"] = { ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Evaluate visual selection" },
+          ["<leader>md"] = { ":MoltenDelete<CR>", desc = "Delete cell" },
+          ["<leader>mh"] = { ":MoltenHideOutput<CR>", desc = "Hide output" },
+          ["<leader>mo"] = { ":noautocmd MoltenEnterOutput<CR>", desc = "Show/Enter output" },
+
+          -- Quarto Mappings
+
+          ["<leader>r"] = { name = " Quarto (Jupyter Runner)" },
+          ["<leader>rr"] = { ":QuartoSend<CR>", desc = "Run cell" },
+          ["<leader>ra"] = { ":QuartoSendAll<CR>", desc = "Run all cells" },
+          ["<leader>rb"] = { ":QuartoSendBelow<CR>", desc = "Run current cell and below" },
+          ["<leader>rl"] = { ":QuartoSendLine<CR>", desc = "Run line" },
+          ["<leader>rp"] = { ":QuartoPreview<CR>", desc = "Preview Notebook" },
+>>>>>>> 02622ed (2025-02-17_12:51:03)
         },
 
         t = {
@@ -200,6 +225,7 @@ return {
           -- ["<C-CR>"] = { "copilot#Accept()", desc = "Copilot Accept", expr = true, silent = true },
         },
         v = {
+<<<<<<< HEAD
           -- Code Companion (LEGACY - COMMENTED OUT)
           -- ["<leader>ze"] = { "<cmd>CodeCompanionChat Add<cr>", desc = "Add Selection to Chat" },
 
@@ -211,6 +237,17 @@ return {
           ["<leader>me"] = { ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Evaluate visual selection" },
 
           ["<localleader>rr"] = { ":QuartoRunRange<CR>", desc = "Run visual range" },
+||||||| parent of 02622ed (2025-02-17_12:51:03)
+          ["<leader>ze"] = { "<cmd>CodeCompanionChat Add<cr>", desc = "Add Selection to Chat" },
+=======
+          ["<leader>ze"] = { "<cmd>CodeCompanionChat Add<cr>", desc = "Add Selection to Chat" },
+
+          ["<leader>m"] = { name = "󰈸 Molten (Python / Jupyter Runner)" },
+
+          ["<leader>me"] = { ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Evaluate visual selection" },
+
+          ["<localleader>rr"] = { ":QuartoRunRange<CR>", desc = "Run visual range" },
+>>>>>>> 02622ed (2025-02-17_12:51:03)
         },
       },
     },
