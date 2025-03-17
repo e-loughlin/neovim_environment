@@ -30,7 +30,7 @@ return {
           ["<leader>Mp"] = { "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
 
           -- ToggleTerm
-          ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+          ["<C-\\>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal" },
 
           ["<leader>tp"] = false,
           ["<leader>tf"] = false,
@@ -38,26 +38,6 @@ return {
           ["<leader>tv"] = false,
           ["<leader>tn"] = false,
           ["<leader>tu"] = false,
-
-          -- ChatGPT
-          -- ["<leader>z"] = { name = "󰚩 ChatGPT" },
-          -- ["<leader>zz"] = { "<cmd>ChatGPT<cr>", desc = "ChatGPT Chat Window" },
-          -- ["<leader>zr"] = { name = "ChatGPT Run ..." },
-          -- ["<leader>zra"] = { "<cmd>ChatGPTRun add_tests<cr>", desc = "Add Tests" },
-          -- ["<leader>zrC"] = { "<cmd>ChatGPTRun code_readability_analysis<cr>", desc = "Code Readability Analysis" },
-          -- ["<leader>zrc"] = { "<cmd>ChatGPTRun complete_code<cr>", desc = "Complete Code" },
-          -- ["<leader>zrd"] = { "<cmd>ChatGPTRun docstring<cr>", desc = "Docstring" },
-          -- ["<leader>zre"] = { "<cmd>ChatGPTRun explain_code<cr>", desc = "Explain Code" },
-          -- ["<leader>zrf"] = { "<cmd>ChatGPTRun fix_bugs<cr>", desc = "Fix Bugs" },
-          -- ["<leader>zrg"] = { "<cmd>ChatGPTRun grammar_correction<cr>", desc = "Grammar Correction" },
-          -- ["<leader>zrk"] = { "<cmd>ChatGPTRun keywords<cr>", desc = "Keywords" },
-          -- ["<leader>zro"] = { "<cmd>ChatGPTRun optimize_code<cr>", desc = "Optimize Code" },
-          -- ["<leader>zrr"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
-          -- ["<leader>zrs"] = { "<cmd>ChatGPTRun summarize<cr>", desc = "Summarize" },
-          -- ["<leader>zrt"] = { "<cmd>ChatGPTRun translate<cr>", desc = "Translate" },
-          -- ["<leader>zc"] = { "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
-          -- ["<leader>za"] = { "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
-          -- ["<leader>ze"] = { "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
 
           -- Code Companion
 
@@ -67,23 +47,9 @@ return {
           ["<leader>zZ"] = { "<cmd>CodeCompanionCmd<cr>", desc = "Generate Terminal Command" },
           ["<leader>zC"] = { "<cmd>CodeCompanion /commit<cr>", desc = "Git Commit Message" },
           ["<leader>za"] = { "<cmd>CodeCompanionActions<cr>", desc = "Action Pallete" },
-          -- ["<leader>zr"] = { name = "ChatGPT Run ..." },
-          -- ["<leader>zra"] = { "<cmd>ChatGPTRun add_tests<cr>", desc = "Add Tests" },
-          -- ["<leader>zrC"] = { "<cmd>ChatGPTRun code_readability_analysis<cr>", desc = "Code Readability Analysis" },
-          -- ["<leader>zrc"] = { "<cmd>ChatGPTRun complete_code<cr>", desc = "Complete Code" },
-          -- ["<leader>zrd"] = { "<cmd>ChatGPTRun docstring<cr>", desc = "Docstring" },
-          -- ["<leader>zre"] = { "<cmd>ChatGPTRun explain_code<cr>", desc = "Explain Code" },
-          -- ["<leader>zrf"] = { "<cmd>ChatGPTRun fix_bugs<cr>", desc = "Fix Bugs" },
-          -- ["<leader>zrg"] = { "<cmd>ChatGPTRun grammar_correction<cr>", desc = "Grammar Correction" },
-          -- ["<leader>zrk"] = { "<cmd>ChatGPTRun keywords<cr>", desc = "Keywords" },
-          -- ["<leader>zro"] = { "<cmd>ChatGPTRun optimize_code<cr>", desc = "Optimize Code" },
-          -- ["<leader>zrr"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
-          -- ["<leader>zrs"] = { "<cmd>ChatGPTRun summarize<cr>", desc = "Summarize" },
-          -- ["<leader>zrt"] = { "<cmd>ChatGPTRun translate<cr>", desc = "Translate" },
-          -- ["<leader>zc"] = { "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
-          -- ["<leader>za"] = { "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
-          -- ["<leader>ze"] = { "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
-          -- DB
+
+          -- Copilot
+          ["<C-j>"] = { "copilot#Accept('<CR>')", desc = "Copilot Accept", expr = true, silent = true },
 
           ["<leader>D"] = { name = "󰆼 Db Tools" },
           ["<leader>Du"] = { "<cmd>DBUIToggle<cr>", desc = "DB UI Toggle" },
@@ -104,18 +70,52 @@ return {
           ["<leader>mo"] = { ":noautocmd MoltenEnterOutput<CR>", desc = "Show/Enter output" },
 
           -- Quarto Mappings
-
           ["<leader>r"] = { name = " Quarto (Jupyter Runner)" },
           ["<leader>rr"] = { ":QuartoSend<CR>", desc = "Run cell" },
-          ["<leader>ra"] = { ":QuartoSendAll<CR>", desc = "Run cell and above" },
-          ["<leader>rb"] = { ":QuartoSendBelow<CR>", desc = "Run cell and below" },
+          ["<leader>ra"] = { ":QuartoSendAll<CR>", desc = "Run all cells" },
+          ["<leader>rb"] = { ":QuartoSendBelow<CR>", desc = "Run current cell and below" },
           ["<leader>rl"] = { ":QuartoSendLine<CR>", desc = "Run line" },
+          ["<leader>rp"] = { ":QuartoPreview<CR>", desc = "Preview Notebook" },
+
+          -- Git (Fugitive) Mappings
+          ["<leader>G"] = { name = " Git" }, -- group name for Git mappings
+          ["<leader>Gs"] = { "<cmd>Git<cr>", desc = "Git status" },
+          ["<leader>Gp"] = { "<cmd>Git push<cr>", desc = "Git push" },
+          ["<leader>GP"] = { "<cmd>Git pull<cr>", desc = "Git pull" },
+          ["<leader>Gb"] = { "<cmd>Git blame<cr>", desc = "Git blame" },
+          ["<leader>Gd"] = { "<cmd>Gvdiffsplit!<cr>", desc = "Git diff" },
+          ["<leader>GC"] = { "<cmd>Git commit<cr>", desc = "Git commit" },
+          ["<leader>Gl"] = { "<cmd>Glog<cr>", desc = "Git log" },
+          ["<leader>G1"] = { "<cmd>diffget //2<cr>", desc = "Git take left diff" },
+          ["<leader>G2"] = { "<cmd>diffget //3<cr>", desc = "Git take right diff" },
+
+          -- Harpoon
+          ["<leader>h"] = { name = "󰛢 Harpoon" }, -- group name for Harpoon mappings
+          ["<leader>ha"] = { function() require("harpoon"):list():add() end, desc = "Add" },
+          -- Commented out because it causes issues. Use CTRL+D when telescope is open
+          -- ["<leader>hd"] = { function() require("harpoon"):list():remove() end, desc = "Remove" },
+          ["<leader>hh"] = { function() _G.toggle_harpoon_telescope() end, desc = "Menu" },
+          ["<leader>h1"] = { function() require("harpoon"):list():select(1) end, desc = "File 1" },
+          ["<leader>h2"] = { function() require("harpoon"):list():select(2) end, desc = "File 2" },
+          ["<leader>h3"] = { function() require("harpoon"):list():select(3) end, desc = "File 3" },
+          ["<leader>h4"] = { function() require("harpoon"):list():select(4) end, desc = "File 4" },
+          ["<leader>h5"] = { function() require("harpoon"):list():select(5) end, desc = "File 5" },
+          ["<leader>hn"] = { function() require("harpoon"):list():next { ui_nav_wrap = true } end, desc = "Next file" },
+          ["<leader>hp"] = {
+            function() require("harpoon"):list():prev { ui_nav_wrap = true } end,
+            desc = "Previous file",
+          },
+
+          ["'D"] = { "<cmd>delmarks A-Z0-9<cr>", desc = "Delete all marks" },
         },
+
         t = {
-          ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
-          ["<C-/>"] = { "<cmd>Trouble Toggle<cr>", desc = "Toggle Trouble Diagnostics" },
+          ["<C-\\>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal" },
           -- setting a mapping to false will disable it
           -- ["<esc>"] = false,
+        },
+        i = {
+          -- ["<C-CR>"] = { "copilot#Accept()", desc = "Copilot Accept", expr = true, silent = true },
         },
         v = {
           ["<leader>ze"] = { "<cmd>CodeCompanionChat Add<cr>", desc = "Add Selection to Chat" },

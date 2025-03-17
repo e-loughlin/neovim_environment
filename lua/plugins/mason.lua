@@ -33,42 +33,46 @@ return {
     opts = {
       ensure_installed = {
         "python",
-        -- add more arguments for adding more debuggers
+        "codelldb", -- Add the LLDB debugger
+        "dart",
       },
       handlers = {
         python = function(source_name)
           local dap = require "dap"
           dap.adapters.python = {
             type = "executable",
-            command = "/usr/bin/python3",
-            args = {
-              "-m",
-              "debugpy.adapter",
-            },
+            command = "python3",
+            args = { "-m", "debugpy.adapter" },
+          }
+        end,
+
+        dart = function()
+          local dap = require "dap"
+          dap.adapters.dart = {
+            type = "executable",
+            command = "dart",
+            args = { "debug_adapter" },
           }
 
-          dap.configurations.python = {
+          dap.configurations.dart = {
             {
-              -- The first three options are required by nvim-dap
-              type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+              name = "Launch Dart Program",
+              type = "dart",
               request = "launch",
-              name = "Launch file",
-
-              -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
-              program = "${file}", -- This configuration will launch the current file if used.
-              pythonPath = function()
-                -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-                -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-                -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-                local cwd = vim.fn.getcwd()
-                if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-                  return cwd .. "/venv/bin/python"
-                elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-                  return cwd .. "/.venv/bin/python"
-                else
-                  return "/usr/bin/python3"
+              program = "${file}",
+              cwd = vim.fn.getcwd(),
+              args = function()
+                local input_str = vim.fn.input("Enter arguments: ", "")
+                if input_str == "" then
+                  return {} -- No arguments
                 end
+
+                -- Manually split input into a table
+                local args = {}
+                for arg in input_str:gmatch "%S+" do
+                  table.insert(args, arg)
+                end
+                return args
               end,
             },
           }
