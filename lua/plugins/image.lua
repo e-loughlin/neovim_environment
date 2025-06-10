@@ -1,3 +1,5 @@
+return {}
+
 -- return {
 --   -- Plugin definition
 --   {
