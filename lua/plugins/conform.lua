@@ -11,7 +11,7 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
-      dart = { "dart_format" },
+      dart = { "dart_format_custom" },
     },
     -- Set default options
     default_format_opts = {
@@ -23,6 +23,10 @@ return {
     formatters = {
       shfmt = {
         prepend_args = { "-i", "2" },
+      },
+      dart_format_custom = {
+        command = "dart",
+        args = function(ctx) return { "format", "--line-length", "120", ctx.filename } end,
       },
     },
     init = function()
