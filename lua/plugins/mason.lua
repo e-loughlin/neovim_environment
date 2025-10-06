@@ -10,6 +10,8 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "eslint",
+        "ts_ls",
         -- add more arguments for adding more language servers
       },
     },
