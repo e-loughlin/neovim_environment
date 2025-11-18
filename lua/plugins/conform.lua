@@ -26,6 +26,7 @@ return {
       },
       dart_format_custom = {
         command = "dart",
+        stdin = false,
         args = function(ctx) return { "format", "--line-length", "120", ctx.filename } end,
       },
     },
