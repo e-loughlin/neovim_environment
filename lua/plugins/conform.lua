@@ -17,6 +17,9 @@ return {
     default_format_opts = {
       lsp_format = "fallback",
     },
+
+    temp_dir = "/tmp/conform",
+
     -- Set up format-on-save
     format_on_save = { timeout_ms = 2500 },
     -- Customize formatters
@@ -26,7 +29,7 @@ return {
       },
       dart_format_custom = {
         command = "dart",
-        stdin = false,
+        -- stdin = false, -- prevents sending the file content via stdin but creates a temp file instead
         args = function(ctx) return { "format", "--line-length", "120", ctx.filename } end,
       },
     },
