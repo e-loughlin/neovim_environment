@@ -10,6 +10,8 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "eslint",
+        "ts_ls",
         -- add more arguments for adding more language servers
       },
     },
@@ -35,6 +37,7 @@ return {
         "python",
         "codelldb", -- Add the LLDB debugger
         "dart",
+        "rust_analyzer",
       },
       handlers = {
         python = function(source_name)

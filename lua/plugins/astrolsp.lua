@@ -25,6 +25,7 @@ return {
     },
 
     servers = {
+      "jdtls",
       -- "pyright",
     },
 
@@ -68,9 +69,21 @@ return {
       },
     },
 
-
     handlers = {
       dartls = function(_, opts) require("lspconfig").dartls.setup(opts) end,
+
+      jdtls = function(_, opts)
+        local jdtls = require "jdtls"
+        local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+        local root_dir = require("jdtls.setup").find_root(root_markers)
+        opts.root_dir = root_dir
+
+        -- Each project has its own workspace folder
+        local workspace_dir = vim.fn.expand "~/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+        opts.cmd = { "jdtls", "-data", workspace_dir }
+
+        jdtls.start_or_attach(opts)
+      end,
     },
 
     autocmds = {

@@ -9,8 +9,13 @@ return {
     -- change colorscheme
     -- colorscheme = "astrodark",
     background_colour = "#000000",
+    require("notify").setup {
+      background_colour = "#000000",
+    },
+
     -- colorscheme = "gruvbox-material",
-    colorscheme = "everforest",
+    -- colorscheme = "everforest",
+    colorscheme = "base16-atelier-forest",
 
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {

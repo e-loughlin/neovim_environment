@@ -1,8 +1,27 @@
 return {
-  "olimorris/codecompanion.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-  },
-  config = true,
+  -- "olimorris/codecompanion.nvim",
+  -- dependencies = {
+  --   "nvim-lua/plenary.nvim",
+  --   "nvim-treesitter/nvim-treesitter",
+  -- },
+  -- opts = {
+  --   strategies = {
+  --     -- Ensure your strategies are using the copilot adapter
+  --     chat = { adapter = "copilot" },
+  --     inline = { adapter = "copilot" },
+  --     agent = { adapter = "copilot" },
+  --   },
+  --   adapters = {
+  --     copilot = function()
+  --       return require("codecompanion.adapters").extend("copilot", {
+  --         schema = {
+  --           model = {
+  --             -- This forces the model to be Gemini 3 Pro
+  --             default = "gemini-3.0-pro",
+  --           },
+  --         },
+  --       })
+  --     end,
+  --   },
+  -- },
 }
